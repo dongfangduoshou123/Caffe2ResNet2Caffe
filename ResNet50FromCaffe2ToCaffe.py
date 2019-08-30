@@ -262,6 +262,7 @@ def initCaffeWeigthsWithCaffe2Weigths(caffe2Net, caffeNet, caffeModel):
                 var_blob = workspace.FetchBlob(op.input[4])
                 bn_param[0].data[...] = np.reshape(mean_blob,running_mean.shape)
                 bn_param[1].data[...] = np.reshape(var_blob,running_var.shape)
+                bn_param[2].data[...] = np.array([1.0])
                 scale_param[0].data[...] = np.reshape(scale_blob,scale_weight.shape)
                 scale_param[1].data[...] = np.reshape(bias_blob,scale_bias.shape)
 
